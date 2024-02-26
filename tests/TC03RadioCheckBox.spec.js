@@ -24,4 +24,5 @@ test.only('Handling checkbox using click method',async({page})=>{
     await page.locator('input[id="vfb-6-0"]').click()
     await page.waitForTimeout(4000)
     await expect(page.locator('input[id="vfb-6-0"]')).toBeChecked()
+    await page.locator('a[href="prod.html?idp_=8"]').last().click()
 })
