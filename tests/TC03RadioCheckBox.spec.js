@@ -1,5 +1,4 @@
 const { test, expect } = require('@playwright/test')
-const exp = require('constants')
 
 test('Handling Radio buttons in playwright',async({page})=>{
     await page.goto('https://www.demo.guru99.com/test/radio.html')
