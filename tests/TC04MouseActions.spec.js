@@ -6,7 +6,8 @@ const { test, expect } = require('@playwright/test')
 
 test('Verify Doubleclick in playwright',async({page})=>{
     await page.goto('https://demoqa.com/buttons')
-    await page.locator('button[id="doubleClickBtn"]').dblclick()
+    await page.locator('#doubleClickBtn').dblclick()
+                //button[id="doubleClickBtn"]
     await expect(page.locator('#doubleClickMessage')).toBeVisible()
     await expect(page.locator('#doubleClickMessage')).toHaveText('You have done a double click')
 })
