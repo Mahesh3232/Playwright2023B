@@ -24,6 +24,15 @@ test.only('Verify redbus dynyamic dropdown in playwright',async({page})=>{
     await page.waitForSelector('.placeHolderMainText')
    // await page.waitForTimeout(5000)
     let optionCount = await page.locator('.placeHolderMainText').count()
-    //let text = await (await page.locator('.placeHolderMainText')).last().textContent()
-    console.log(optionCount)
+    // let text = await (await page.locator('.placeHolderMainText')).last().textContent()
+    // console.log(text)
+    for(let i = 2 ;i< optionCount;i++){
+        let text = await page.locator('.placeHolderMainText').nth(2).textContent()
+        console.log(text)
+        if(text === 'Viman Nagar'){
+            await page.locator('.placeHolderMainText').nth(i).click()
+            break
+        }
+    }
+    await page.waitForTimeout(5000)
 })
