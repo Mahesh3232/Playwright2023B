@@ -1,6 +1,7 @@
 //Static dropdown
 //dynyamic dropdown
 const { test, expect } = require('@playwright/test')
+const exp = require('constants')
 
 
 test('Verify static dropdown in playwright',async({page})=>{
@@ -18,7 +19,7 @@ test('Verify static dropdown in playwright',async({page})=>{
 
 //Dynyamic Dropdown
 
-test.only('Verify redbus dynyamic dropdown in playwright',async({page})=>{
+test('Verify redbus dynyamic dropdown in playwright',async({page})=>{
     await page.goto('https://www.redbus.in/')
     await page.locator('#src').fill('Pune',{delay:2000})
     await page.waitForSelector('.placeHolderMainText')
@@ -36,3 +37,22 @@ test.only('Verify redbus dynyamic dropdown in playwright',async({page})=>{
     }
     await page.waitForTimeout(5000)
 })
+
+test.only('Verify dynyamic dropdropdown',async({page})=>{
+    await page.goto('https://www.redbus.in/')
+    await page.locator('#dest').fill('Mumbai',{delay:2000})
+    await page.waitForSelector('.placeHolderMainText')
+    let result = await page.locator('.placeHolderMainText').count()
+    console.log(result)
+    for (let i =0 ;i<result;i++){
+        let text = await page.locator('.placeHolderMainText').nth(i).textContent()
+        console.log(text)
+        if(text === 'Andheri East'){
+            await page.locator('.placeHolderMainText').nth(i).click()
+            break
+        }
+    }
+    await page.waitForTimeout(5000)
+    let aseert = await page.locator('text[class="placeHolderMainText"]')
+    await expect(aseert).toHaveText('Andheri East')
+}) 
