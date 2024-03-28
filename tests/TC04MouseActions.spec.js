@@ -20,7 +20,7 @@ test('Verify rightclick in playwright',async({page})=>{
     await page.waitForTimeout(4000)
 })
 
-test.only('Verify mouse hover action in playwright',async({page})=>{
+test('Verify mouse hover action in playwright',async({page})=>{
     await page.goto('https://webdriveruniversity.com/Actions/index.html')
     await page.getByText('Hover Over Me Third!').hover()
     await page.getByText('Link 1').nth(2).click()

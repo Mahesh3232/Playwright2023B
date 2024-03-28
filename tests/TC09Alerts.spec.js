@@ -34,7 +34,7 @@ test('Handle js confirm with playwright',async({page})=>{
     await page.waitForTimeout(4000)
 })
 
-test.only('Handle js prompt with playwright',async({page})=>{
+test('Handle js prompt with playwright',async({page})=>{
     await page.goto('https://the-internet.herokuapp.com/javascript_alerts')
     page.on('dialog',async promptAlert =>{
         await expect(promptAlert.message()).toContain('I am a JS prompt')
@@ -49,3 +49,4 @@ test.only('Handle js prompt with playwright',async({page})=>{
     await expect(page.locator('#result')).toHaveText('You entered: null')
     await page.waitForTimeout(4000)
 })
+
