@@ -21,7 +21,6 @@ test("Redbus dynyamic dropdown", async ({ page }) => {
       .locator('div[style="flex-grow: 1; cursor: pointer;"]')
       .last()
       .click();
-    // console.log(monthyear)
   }
   await page.waitForTimeout(4000)
 });

@@ -1,0 +1,26 @@
+[
+    {
+        "firstName": "Mahesh",
+        "lastName": "Aher",
+        "email": "mahesh.aher@gmail.com",
+        "msg": "I am learning playwright with javaScript"
+    },
+    {
+        "firstName": "Rushi",
+        "lastName": "Aher",
+        "email": "rushi.aher@gmail.com",
+        "msg": "I am learning playwright with javaScript"
+    },
+    {
+        "firstName": "Suraj",
+        "lastName": "Aher",
+        "email": "Suraj.aher@gmail.com",
+        "msg": "I am learning playwright with javaScript"
+    },
+    {
+        "firstName": "Gokul",
+        "lastName": "Aher",
+        "email": "Gokul.aher@gmail.com",
+        "msg": "I am learning playwright with javaScript"
+    }
+]
