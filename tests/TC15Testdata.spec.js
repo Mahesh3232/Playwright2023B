@@ -1,5 +1,6 @@
 const { test, expect } = require("@playwright/test");
-const data = require('../tests/TestData/ContactUsData.json')
+const data = require('../tests/TestData/ContactUsData.json');
+const { customTest } = require("./TestData/Data");
 
 // test('Verify contactUs form using fixture data',async({page})=>{
 //     await page.goto('https://webdriveruniversity.com/Contact-Us/contactus.html')
@@ -22,3 +23,13 @@ data.forEach(element => {
         await expect(page.locator('h1')).toHaveText('Thank You for your Message!')
     })
 });
+
+customTest.only('Verify contactUs page using js file data',async({page,testdataForContactUs})=>{
+    await page.goto('https://webdriveruniversity.com/Contact-Us/contactus.html')
+    await page.locator('[name="first_name"]').fill(testdataForContactUs.firstName)
+    await page.locator('[name="last_name"]').fill(testdataForContactUs.lastName)
+    await page.locator('[name="email"]').fill(testdataForContactUs.email)
+    await page.locator('[name="message"]').fill(testdataForContactUs.msg)
+    await page.locator('[value="SUBMIT"]').click()
+    await expect(page.locator('h1')).toHaveText('Thank You for your Message!')
+})
