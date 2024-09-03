@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test.only('validate the multiple tabs', async ({ browser }) => {
+test('validate the multiple tabs', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/')
@@ -42,3 +42,17 @@ test('validate the multi window',async({browser})=>{
 
 
 })
+
+
+ test.only('Remove attribute',async({browser})=>{
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto('https://rahulshettyacademy.com/AutomationPractice/')
+    await page.evaluate(()=>{
+        const selector = document.querySelector('[id="opentab"]');
+        selector.removeAttribute('target','_blank')    
+    });
+    page.locator('[href="https://www.qaclickacademy.com"]').click()
+    await page.waitForTimeout(5000)
+
+ })
